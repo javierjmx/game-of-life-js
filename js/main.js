@@ -1,23 +1,11 @@
 (function() {
-  var seed = [
-    [false, false, false, false, false, false, false, false, false],
-    [false, false, true, false, false, false, true, true, false],
-    [false, false, true, false, false, false, true, true, false],
-    [false, false, true, false, false, false, false, false, false],
-    [false, false, false, false, false, false, false, false, false],
-    [false, false, false, false, false, false, false, false, false],
-    [false, false, true, true, false, false, false, true, false],
-    [false, true, false, false, true, false, false, true, false],
-    [false, false, true, true, false, false, false, true, false],
-    [false, false, false, false, false, false, false, false, false],
-    [false, false, false, false, false, false, false, false, false, false, false, false],
-    [false, false, false, false, false, false, false, true, true, false, false, false],
-    [false, false, true, true, true, false, false, true, true, false, false, false],
-    [false, true, true, true, false, false, false, false, false, true, true, false],
-    [false, false, false, false, false, false, false, false, false, true, true, false],
-    [false, false, false, false, false, false, false, false, false, false, false, false],
-  ],
-      universe = seed;
+  var universe = [];
+  for (var i = 0; i < 100; i++) {
+    universe.push([]);
+    for (var j = 0; j < 100; j++) {
+      universe[i].push( Math.round(Math.random()));
+    }
+  }
 
   setInterval(function() {
     graphics.scene(universe);
