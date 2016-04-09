@@ -1,8 +1,8 @@
 (function() {
-  var universe = [],
-      paused = true,
-      toggle = document.getElementById('toggle'),
-      timer;
+  const toggle = document.getElementById('toggle');
+  let universe = [];
+  let paused = true;
+  let timer;
 
   function pause() {
     clearInterval(timer);
@@ -17,13 +17,16 @@
   }
 
   function shuffle() {
-    var universe = [];
-    for (var i = 0; i < 100; i++) {
+    const universe = [];
+
+    for (let i = 0; i < 100; i++) {
       universe.push([]);
-      for (var j = 0; j < 70; j++) {
-        universe[i].push( Math.round(Math.random()));
+
+      for (let j = 0; j < 70; j++) {
+        universe[i].push(Math.round(Math.random()));
       }
     }
+
     return universe;
   }
 
@@ -37,18 +40,17 @@
     graphics.scene(universe);
   }
 
-  paint()
-  toggle.addEventListener('click', function() {
-    if (paused) {
-      play();
-    } else {
-      pause();
-    }
+  paint();
+
+  toggle.addEventListener('click', function toggleClick() {
+    if (paused) play();
+    else pause();
   });
-  document.getElementById('shuffle').addEventListener('click', function() {
-    if (!paused) {
-      pause();
-    }
-    paint();
-  });
+
+  document
+    .getElementById('shuffle')
+    .addEventListener('click', function shuffleClick() {
+      if (!paused) pause();
+      paint();
+    });
 })();
